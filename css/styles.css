@@ -1,80 +1,176 @@
+/* Body Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f0f4f7;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 
-.form-container {
+/* Main container to split the screen */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
     background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    height: 80vh;
 }
 
-h2 {
-    text-align: center;
+/* Left Side: Logo and Illustration - Inverted to white background */
+.left-side {
+    flex: 1;
+    background-color: white;
+    color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    width: 150px;
     margin-bottom: 20px;
-    color: #333;
+}
+
+.illustration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.illustration {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Right Side: Form - Inverted to darker background */
+.right-side {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #2c3e50;
+    color: white;
+}
+
+.header-container h1 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.header-container p {
+    color: #ddd;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Modern Form Styling */
+.form-container h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .form-input {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Fixed width for input fields */
+.form-input input {
+    width: 300px; /* Set a fixed width for the input fields */
+    padding: 14px 10px 14px 40px;
+    border: 2px solid transparent;
+    border-bottom: 2px solid #ccc;
+    background-color: #34495e;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    transition: all 0.3s ease;
 }
 
 .form-input label {
-    display: block;
-    margin-bottom: 5px;
-    color: #666;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #bbb;
+    pointer-events: none;
+    transition: all 0.3s ease;
 }
 
-.form-input input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.form-input input:focus {
+    border-bottom-color: #1abc9c;
+    outline: none;
+}
+
+.form-input input:focus + label,
+.form-input input:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: 12px;
+    color: #1abc9c;
 }
 
 .error {
     color: red;
-    font-size: 14px;
+    font-size: 12px;
     display: none;
+    margin-top: 5px;
 }
 
+/* Modern Button */
 .remove-btn {
-    width: 100%;
-    padding: 10px;
+    width: 100%; /* Set the button to take the full width */
+    padding: 14px;
     background-color: #e74c3c;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     color: white;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .remove-btn:hover {
     background-color: #c0392b;
+    transform: translateY(-2px);
 }
 
+.remove-btn:active {
+    background-color: #b32e27;
+    transform: translateY(0);
+}
+
+/* Snackbar */
 #snackbar {
     visibility: hidden;
     min-width: 250px;
-    margin-left: -125px;
     background-color: #333;
     color: #fff;
     text-align: center;
-    border-radius: 2px;
+    border-radius: 4px;
     padding: 16px;
     position: fixed;
     z-index: 1;
     left: 50%;
     bottom: 30px;
-    font-size: 17px;
+    transform: translateX(-50%);
+    font-size: 14px;
 }
 
 #snackbar.show {
@@ -83,11 +179,32 @@ h2 {
 }
 
 @keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
+    from {bottom: 0; opacity: 0;}
     to {bottom: 30px; opacity: 1;}
 }
 
 @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
+    from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
+}
+
+/* Responsive for smaller screens (single column layout) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-side, .right-side {
+        flex: none;
+        width: 100%;
+    }
+
+    .illustration {
+        width: 200px;
+    }
+
+    .form-input input {
+        width: 90%; /* Adjust input width for smaller screens */
+    }
 }

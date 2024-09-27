@@ -3,34 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Form with Validation</title>
-    <!-- Link to the external CSS file -->
+    <title>Account Deletion Form</title>
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<div class="form-container">
-    <h2>Account Details</h2>
-    <div class="form-input">
-        <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Enter your name">
+<!-- Main container that will split the screen -->
+<div class="container">
+    <!-- Left Side: Logo and Illustration -->
+    <div class="left-side">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </div>
+        <div class="illustration-container">
+            <img src="images/illustration.jpg" alt="Illustration" class="illustration">
+        </div>
     </div>
-    <div class="form-input">
-        <label for="email">Email ID</label>
-        <input type="email" id="email" placeholder="Enter your email">
-        <span class="error" id="emailError">Please enter a valid email</span>
+
+    <!-- Right Side: Deletion Form -->
+    <div class="right-side">
+        <div class="header-container">
+            <h1>Account Deletion Form</h1>
+            <p>If you wish to delete your account, please fill out the form below and confirm the action. All your data will be permanently removed.</p>
+        </div>
+
+        <div class="form-container">
+            <h2>Enter Your Details</h2>
+            <div class="form-input">
+                <!-- <label for="name">Name</label> -->
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-input">
+                <!-- <label for="email">Email ID</label> -->
+                <input type="email" id="email" placeholder="Enter your email">
+                <span class="error" id="emailError">Please enter a valid email</span>
+            </div>
+            <div class="form-input">
+                <!-- <label for="password">Password</label> -->
+                <input type="password" id="password" placeholder="Enter your password">
+                <span class="error" id="passwordError">Password must be at least 6 characters</span>
+            </div>
+            <button class="remove-btn" onclick="removeAccount()">Remove My Account</button>
+        </div>
     </div>
-    <div class="form-input">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password">
-        <span class="error" id="passwordError">Password must be at least 6 characters</span>
-    </div>
-    <button class="remove-btn" onclick="removeAccount()">Remove My Account</button>
 </div>
 
+<!-- Snackbar for Success Message -->
 <div id="snackbar">Your data has been removed</div>
 
-<!-- Link to the external JavaScript file -->
+<!-- Link to external JavaScript file -->
 <script src="js/script.js"></script>
 
 </body>

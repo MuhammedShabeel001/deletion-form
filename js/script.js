@@ -1,3 +1,4 @@
+// Validate form fields
 function validateForm() {
     let isValid = true;
 
@@ -25,23 +26,27 @@ function validateForm() {
     return isValid;
 }
 
+// Remove account functionality
 function removeAccount() {
     if (validateForm()) {
         let confirmAction = confirm("Are you sure you want to remove your account?");
         if (confirmAction) {
-            // Clear the input fields
+            // Clear input fields
             document.getElementById('name').value = '';
             document.getElementById('email').value = '';
             document.getElementById('password').value = '';
 
-            // Show snackbar
+            // Show snackbar for feedback
             showSnackbar();
         }
     }
 }
 
+// Snackbar function
 function showSnackbar() {
     let snackbar = document.getElementById("snackbar");
     snackbar.className = "show";
-    setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+    setTimeout(function() {
+        snackbar.className = snackbar.className.replace("show", "");
+    }, 3000);
 }
